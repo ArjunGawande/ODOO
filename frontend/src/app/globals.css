@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+/*
+ * The palette lives here and nowhere else. Components use the Tailwind names
+ * below (bg-surface, text-ink, border-line, bg-accent, ...), never raw colours.
+ */
+:root {
+  --canvas: #f5f6f7;
+  --surface: #ffffff;
+  --surface-muted: #f0f2f4;
+  --line: #dde1e6;
+  --line-strong: #8d96a3;
+
+  --ink: #1c2530;
+  --ink-muted: #56606d;
+  --ink-inverse: #ffffff;
+
+  --accent: #17625e;
+  --accent-strong: #104946;
+  --accent-soft: #e2f0ee;
+
+  --success: #1d6b42;
+  --success-soft: #e3f2e9;
+  --warning: #8a5300;
+  --warning-soft: #fbf0db;
+  --danger: #b0262c;
+  --danger-strong: #8c1c21;
+  --danger-soft: #fbe9e9;
+  --info: #285a8f;
+  --info-soft: #e5eef8;
+
+  --focus: #17625e;
+  --sidebar: #17222d;
+  --sidebar-ink: #c7d0da;
+  --sidebar-active: #26343f;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-inverse: var(--ink-inverse);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-strong: var(--danger-strong);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-ink: var(--sidebar-ink);
+  --color-sidebar-active: var(--sidebar-active);
+
+  --font-sans: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    /* Not `anywhere`: that shrinks min-content and crushes table columns. */
+    overflow-wrap: break-word;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  /* Inputs at 16px stop iOS Safari zooming the page on focus. */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 0.9375rem;
+    }
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}

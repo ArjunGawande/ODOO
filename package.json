@@ -1,0 +1,34 @@
+{
+  "name": "brightloop-billing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev frontend",
+    "build": "next build frontend",
+    "start": "next start frontend",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "db:migrate": "knex --knexfile backend/knexfile.js migrate:latest",
+    "db:rollback": "knex --knexfile backend/knexfile.js migrate:rollback",
+    "db:seed": "knex --knexfile backend/knexfile.js seed:run",
+    "db:reset": "knex --knexfile backend/knexfile.js migrate:rollback --all && knex --knexfile backend/knexfile.js migrate:latest && knex --knexfile backend/knexfile.js seed:run"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "knex": "^3.3.0",
+    "next": "^16.4.3",
+    "nodemailer": "^10.3.1",
+    "pg": "^8.23.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.3",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.3",
+    "vitest": "^5.0.5"
+  }
+}
